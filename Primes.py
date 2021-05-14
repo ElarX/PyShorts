@@ -5,7 +5,10 @@ import numpy as np
 knownPrimes = np.array([2])
 
 def updatePrimes (number):
-
+    '''
+    :argument takes in a positive integer >1 and updates the stored list of primes
+    :return null
+    '''
     global knownPrimes
 
     #intelligently update the list of known primes
@@ -15,11 +18,12 @@ def updatePrimes (number):
 
 
 def isPrime(num):
+    # define the ambiguity around 1
+    if num == 1:
+        return True
+
     updatePrimes(num)
 
-    #define the ambiguity around 1
-    if num ==1:
-        return True
     return num in knownPrimes
 
 

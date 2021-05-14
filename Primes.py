@@ -20,7 +20,7 @@ def updatePrimes (number):
 def isPrime(num):
     # define the ambiguity around 1
     if num == 1:
-        return True
+        return False
 
     updatePrimes(num)
 
@@ -30,7 +30,9 @@ def isPrime(num):
 #recursiveSolution - no stored values
 
 def isPrime2(num):
-    if num ==1 or num==2:
+    if num ==1:
+        return False #1 is not a prime number
+    elif num==2:
         return True
 
     return False if primeHelper(num,num-1) ==0 else True
@@ -42,10 +44,13 @@ def primeHelper(target, curNum):
         return 1
     return target%curNum*primeHelper(target,curNum-1)
 
-print(isPrime2(10))
+
 
 #one-line solution
 def isPrime3(num):
     return False if np.prod(num%np.array(range(2,int(np.sqrt(num)+1)))) ==0 else True
 
+#Try each of the options
+print(f'is 5 prime? {isPrime(5)}')
+print(f'is 10 prime? {isPrime2(10)}')
 print(f'One line solution - is 9 prime? {isPrime3(9)}')

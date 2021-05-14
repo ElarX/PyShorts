@@ -43,3 +43,9 @@ def primeHelper(target, curNum):
     return target%curNum*primeHelper(target,curNum-1)
 
 print(isPrime2(10))
+
+#one-line solution
+def isPrime3(num):
+    return False if np.prod(num%np.array(range(2,int(np.sqrt(num)+1)))) ==0 else True
+
+print(f'One line solution - is 9 prime? {isPrime3(9)}')
